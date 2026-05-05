@@ -1,0 +1,46 @@
+/remoll/setgeofile ../geometry/mollerMother.gdml
+
+/remoll/physlist/register QGSP_BERT_HP
+/remoll/parallel/setfile ../geometry/mollerParallel.gdml 
+
+/remoll/physlist/parallel/enable 
+/run/numberOfThreads 5
+
+/run/initialize
+
+/control/execute ../macros/target/LH2.mac
+
+/control/execute ../macros/load_magnetic_fieldmaps.mac
+
+/remoll/evgen/set beam
+/remoll/oldras false
+
+/remoll/evgen/beam/origin 0 0 -7.5 m 
+/remoll/evgen/beam/rasx 5 mm
+/remoll/evgen/beam/rasy 5 mm 
+
+/remoll/evgen/beam/corrx 0.065
+/remoll/evgen/beam/corry 0.065
+/remoll/evgen/beam/rasrefz -4.5 m
+
+/remoll/beamene 11 GeV
+
+/remoll/beamcurr 65 microampere
+
+/remoll/SD/disable_all
+
+/remoll/SD/enable 174
+/remoll/SD/detect lowenergyneutral 174
+/remoll/SD/detect secondaries 174
+/remoll/SD/detect boundaryhits 174
+# 174 is the Detector Number for the LAMs Virtual Plane
+
+/process/list
+/remoll/seed 1234567890
+# ^^ "random" ten-digit seed
+
+/remoll/filename /volatile/halla/moller12gev/amgunsch/remoll_rootfiles/lam_test.root
+/remoll/target/print
+
+/run/beamOn 100
+# to throw 100 events
