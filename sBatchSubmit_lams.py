@@ -19,7 +19,7 @@ def main():
     generators = ["moller", "epelastic"]
     for generator in generators:
 
-        config = "gem_geometry_pos_{0}_{1}".format(generator)
+        config = "lam_{0}".format(generator)
         outDir = "/volatile/halla/moller12gev/dvalmass/remolloutput/"+config
 
         if not os.path.exists(outDir):
