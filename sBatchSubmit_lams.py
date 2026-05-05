@@ -7,7 +7,9 @@ def main():
 
     sourceDir = "/work/halla/moller12gev/dvalmass/remoll"
 
-    activeDetectors = [80001,80002,80003,
+    activeDetectors = [28, 30, 99, 101, ## MD, GEMs, roof, wall
+                       5521, #rasterBox
+                       80001,80002,80003,
                        80101,80102,80102,
                        80201,80202,80203,
                        80301,80302,80303,
@@ -16,7 +18,7 @@ def main():
                        80601,80602,80603]
 
 
-    generators = ["moller", "epelastic"]
+    generators = ["epelastic"]
     for generator in generators:
 
         config = "lam_{0}".format(generator)
@@ -24,9 +26,9 @@ def main():
 
         if not os.path.exists(outDir):
             os.makedirs(outDir)
-        nrEv   = 10000
+        nrEv   = 5000
         nrStart= 0
-        nrStop = 1 #(nrStop -nrStart)
+        nrStop = 200 #(nrStop -nrStart)
         submit  = 1 ## submit is 1 to submit job, submit is 0 to create folder without submitting the jobs
 
         print('Running ' + str(nrEv*(nrStop - nrStart)) + ' events...')
