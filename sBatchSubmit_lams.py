@@ -76,6 +76,8 @@ def createMacFile(srcDir, outDirFull, nrEv, jobNr, detectorList, generator):
         f.write("/remoll/evgen/thmax 2 deg\n")
     elif generator == "moller":
         f.write("/remoll/evgen/set moller\n")
+    elif generator == "beam":
+        f.write("/remoll/evgen/set beam\n")
     else:
         print("generator not added")
         sys.exit(0)
